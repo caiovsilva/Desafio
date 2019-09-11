@@ -8,6 +8,9 @@ namespace DesafioWebApplication.Models.Entidades
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Nome Administradora")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string NomeAdministradora { get; set; }
     }
 }

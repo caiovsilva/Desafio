@@ -18,11 +18,22 @@ namespace DesafioWebApplication.Controllers
 
         public ActionResult Condominio()
         {
+            var _getResponsaveis = new UsuarioController().GetUsuarios().Where(x => x.TipoUsuario.Contains("Sindico") || x.TipoUsuario.Contains("Zelador"));
+            ViewBag.Responsaveis = new SelectList(_getResponsaveis, "Nome", "Nome");
+
             return View();
         }
 
         public ActionResult Usuario()
         {
+            List<string> ListTipoUsuario = new List<string>();
+            ListTipoUsuario.Add("Morador");
+            ListTipoUsuario.Add("Sindico - Responsavel");
+            ListTipoUsuario.Add("Administradora - Responsavel");
+            ListTipoUsuario.Add("Zelador - Responsavel");
+
+            ViewBag.TipoUsuario = new SelectList(ListTipoUsuario);
+
             return View();
         }
 
@@ -33,18 +44,16 @@ namespace DesafioWebApplication.Controllers
 
         public ActionResult Comunicado()
         {
-            var listUsuarios = new List<UsuarioEntity>();
-            var _getUsuarios = new UsuarioController();
+            var _getUsuarios = new UsuarioController().GetUsuarios().Where(x => x.TipoUsuario.Contains("Morador"));
+            var _getResponsaveis = new UsuarioController().GetUsuarios().Where(x => x.TipoUsuario.Contains("Sindico") || x.TipoUsuario.Contains("Zelador"));            
+            var _getAdministradoras = new UsuarioController().GetUsuarios().Where(x => x.TipoUsuario.Contains("Administradora"));
+            var _getAssuntos = new AssuntoController().GetAssuntoEntities();
 
-            ViewBag.NomeUsuarios = new SelectList(_getUsuarios.GetUsuarios(), "Id", "Nome");
-            ViewBag.EmailUsuarios = new SelectList(_getUsuarios.GetUsuarios(), "Id", "Email");
-            ViewBag.TipoUsuarios = new SelectList(_getUsuarios.GetUsuarios(), "Id", "TipoUsuario");
-
-            var listAssuntos = new List<AssuntoEntity>();
-            var _getAssuntos = new AssuntoController();
-
-            ViewBag.TipoAssunto = new SelectList(_getAssuntos.GetAssuntoEntities(), "Id", "TipoAssunto");
-
+            ViewBag.NomeUsuarios = new SelectList(_getUsuarios, "Nome", "Nome");
+            ViewBag.EmailResponsaveis = new SelectList(_getResponsaveis, "Email", "Email");
+            ViewBag.EmailAdministradoras = new SelectList(_getAdministradoras, "Email", "Email");
+            ViewBag.TipoUsuarios = new SelectList(_getUsuarios, "Id", "TipoUsuario");
+            ViewBag.TipoAssunto = new SelectList(_getAssuntos, "TipoAssunto", "TipoAssunto");
 
             return View();
         }

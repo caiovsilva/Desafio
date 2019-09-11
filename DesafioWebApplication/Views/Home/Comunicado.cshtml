@@ -18,23 +18,39 @@
     <div class="form-group">
         @Html.Label("Tipo Assunto", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.IdAssunto, (SelectList)ViewBag.TipoAssunto, "Selecione...", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.IdAssunto, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.TipoAssunto, (SelectList)ViewBag.TipoAssunto, "Selecione...", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TipoAssunto, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.Label("Nome Usuário", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.IdUsuario, (SelectList)ViewBag.NomeUsuarios, "Selecione...", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.NomeUsuario, (SelectList)ViewBag.NomeUsuarios, "Selecione...", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.NomeUsuario, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" id="responsaveis" style="display:none">
+        @Html.Label("Destinatário", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Destinatario, (SelectList)ViewBag.EmailResponsaveis, "Selecione...", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Destinatario, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" id="administradoras" style="display:none">
+        @Html.Label("Destinatário", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Destinatario, (SelectList)ViewBag.EmailAdministradoras, "Selecione...", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Destinatario, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.Label("Comunicado", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextAreaFor(model => model.TextoComunicado, new { @class = "form-control", @rows = "4", @cols = "10", @placeholder = "Digite aqui seu comunicado..." })
+            @Html.TextAreaFor(model => model.TextoComunicado, new { @class = "form-control", @rows = "4", @cols = "10", @maxlength = "250", @placeholder = "Digite aqui seu comunicado..." })
             @Html.ValidationMessageFor(model => model.TextoComunicado, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -56,4 +72,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/app/Comunicado.js"></script>
 }

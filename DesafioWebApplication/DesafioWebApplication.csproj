@@ -191,10 +191,10 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdministradoraController.cs" />
     <Compile Include="Controllers\AssuntoController.cs" />
+    <Compile Include="Controllers\ComunicadoController.cs" />
     <Compile Include="Controllers\CondominioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

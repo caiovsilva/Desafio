@@ -11,9 +11,8 @@ namespace DesafioWebApplication.Models
 
         public DbSet<CondominioEntity> Condominios { get; set; }
         public DbSet<UsuarioEntity> Usuarios { get; set; }
-
-        public System.Data.Entity.DbSet<DesafioWebApplication.Models.Entidades.AssuntoEntity> AssuntoEntities { get; set; }
-
-        public System.Data.Entity.DbSet<DesafioWebApplication.Models.Entidades.AdministradoraEntity> AdministradoraEntities { get; set; }
+        public DbSet<AssuntoEntity> AssuntoEntities { get; set; }
+        public DbSet<AdministradoraEntity> AdministradoraEntities { get; set; }
+        public DbSet<ComunicadoEntity> ComunicadoEntities { get; set; }
     }
 }

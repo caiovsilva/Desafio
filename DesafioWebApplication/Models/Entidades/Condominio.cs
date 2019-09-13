@@ -13,9 +13,9 @@ namespace DesafioWebApplication.Models.Entidades
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string NomeCondominio { get; set; }
 
-        [Display(Name = "Administrador")]
+        [Display(Name = "Administradora")]
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public string Administrador { get; set; }
+        public string Administradora { get; set; }
 
         [Display(Name = "Responsável")]
         [Required(ErrorMessage = "O campo {0} é obrigatório")]

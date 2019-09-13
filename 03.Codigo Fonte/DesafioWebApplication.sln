@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioWebApplication", "DesafioWebApplication\DesafioWebApplication.csproj", "{1A089F08-237E-4E4D-B003-63A8B49C5563}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTestes", "Desafio.Testes\DesafioTestes.csproj", "{00BB3897-9E94-4B42-A0CC-8F111CE28769}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioTestes", "DesafioTestes\DesafioTestes.csproj", "{00BB3897-9E94-4B42-A0CC-8F111CE28769}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

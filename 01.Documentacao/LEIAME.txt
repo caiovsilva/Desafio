@@ -1,0 +1,25 @@
+** PASSO A PASSO (Rodar/Executar o Projeto) **
+
+01. Abrir o Visual Studio, adicionar um novo repositório do Git (enviado por e-mail) e clonar o projeto 'Desafio'.
+02. Abrir o SQL Server Management Studio, configurar/apontar para uma instância local, criar um novo banco de dados (Ex. Db_Desafio) e executar o script 'DataBase - Script.sql' disponível na pasta '02.Banco de Dados'.
+03. De volta ao Visual Studio, localize/abra o arquivo 'web.config' no projeto 'DesafioWebApplication', localize a tag 'connectionStrings' e altere os seguintes valores:
+  3.1 'DataSource' - aqui deve ser informado o nome da instância (ou endereço servidor) onde o banco de dados foi criado.
+  3.2 'Initial Catalog' - aqui deve ser informado o nome dado ao banco de dados criado.
+04. Ainda no Visual Studio, localize/abra o arquivo 'app.config' no projeto 'DesafioTestes', e copie/cole a tag 'connectionStrings' configurada no passo anterior.
+05. Botão direito na Solution 'Clean', em seguida 'Rebuild' e por fim, executar.
+06. Navegue pelo portal e valide suas funcionalidades.
+
+
+** ARQUITETURA E DESIGN ADOTADO **
+
+Optei por uma estrutura de camadas (WebApplication e Testes) em uma nova solution, voltada para WebApi, do proprio visual studio.
+   - A ideia original foi criar um terceira camada (Negócio) para atender/detelhar a regra de envio de comunicado, mas visando respeitar o prazo de entrega, optei por fazer esse tratamento na propria controller de uma maneira mais simples/direta. 
+Através dela utilizei/criei novas classes/entidades, de acordo com o desafio proposto, e com base nelas criei as controllers e seus respectivos métodos para atender as requisicoes da API.
+Utilizei uma instancia local do MSSQL para criar um pequeno banco e armazenar/gerenciar as informações produzidas/trafegadas pelo portal e pela API.
+
+
+** UNIT TEST **
+
+Até mesmo por conta do tempo disponível, crei testes somente para os endpoints de Condominios e Usuários (validar/testar seus respectivos métodos) - de acordo com o Item 2/Nivel 2 do desafio.
+Mas, como são requisições da mesma finalidade, esses mesmos modelos podem ser reaproveitados para validar as demais classes/métodos da aplicação.
+ 
